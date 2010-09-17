@@ -1,0 +1,4 @@
+useDynLib(genepi)
+import(stats,graphics)
+export("haplotypeOddsRatio", "twoStagePower")
+S3method(print, haploOR)
