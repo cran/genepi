@@ -12,16 +12,19 @@ haplotypeOddsRatio <- function(formula, gtypevar, data, stratvar=NULL, nsim=100,
   nsubjects <- nrow(data)
 # number of loci
   k <- length(gtypevar)
+# get the response variable
+  disease <- model.response(model.frame(formula, data))
 # setup the data and formula for analysis
-  newdata <- model.frame(formula, data)
+  newdata <- data
   newformula <- update(formula, . ~ haplocopynum + .)
-  disease <- newdata[[1]]
-# genotype matrix indicating 0/1/2 copies of wt for each locus  
+# genotype matrix indicating 0/1/2 copies of wt for each locus
+  if(any(is.na(match(gtypevar, names(data))))) stop("one or more genotype variables not in the data frame")
   gtype <- as.matrix(2-data[gtypevar])
 # create strata variable if missing
   if (missing(stratvar)) {
     strat <- rep(1,nsubjects)
   } else {
+    if(is.na(match(stratvar, names(data)))) stop("stratification variable not in the data frame")
     strat <- data[[stratvar]]
   }
 # Number of possible haplotypepairs
@@ -55,26 +58,34 @@ haplotypeOddsRatio <- function(formula, gtypevar, data, stratvar=NULL, nsim=100,
   newdata <- rbind(newdata, newdata1)
   p1copy <- rep(0,nsubjects)
   for(i in ustrat) {
+#  for each population stratum get the controls
     i0 <- which(strat==i & disease==0)
     n0 <- length(i0)
+#  compute the haplotype frequency under HWE  
     hf0 <- hwehaplofreq(n0, two2k, g1idx[i0], g2idx[i0], zzz$g1tbl, zzz$hpair)
+#  for all subjects with ambiguous haplotypes in the stratum (includes cases)
     i1 <- which(strat==i & copynumambig)
     n1 <- length(i1)
+#  compute the probability of 1 copy (case probabilities will be updated later)
     p1copy[i1] <- probonecopy(n1, hf0, g1idx[i1], zzz$g1tbl, zzz$hpair)
   }
 # stop R CMD check warning: no visible binding for global variable ‘hfwts’
   hfwts <- NA
   newdata$hfwts <- c(1-p1copy,p1copy[copynumambig])
-# which diseased subjects have ambiguous haplotypes 
-  iamb1 <- nsubjects + which(newdata[nsubjects+(1:namb), 1] ==1)
-# non-diseased subjects who have ambiguous haplotypes 
-  iamb0 <- iamb1 - namb
+# haplotype ambiguous subjects will be coded as both copy num = 0 & 1
+# the probability of 1 copy needs to be updated only for cases
+# cases who will be coded as 0
+  iamb0 <- which(disease==1 & copynumambig)
+# cases who will be coded as 1
+  iamb1 <- iamb0 + namb
   xyz <- glm(newformula, family=quasibinomial(), data=newdata, weights=hfwts)
+# coefficients for intercept and haplocopynum=1
   haplo.lnor <- (xyz$coefficients)[1:2]
   or1copy1 <- 1
   or1copy0 <- exp(haplo.lnor[2])
   q1copy0 <- p1copy[iamb0]
   while (abs(or1copy0 - or1copy1) > tol) {
+#  need exp(theta_1 + X beta) to update probability of 1 copy
     haplo.lp <- (xyz$linear.predictors - haplo.lnor[1])[iamb1]
     q1copy <- exp(haplo.lp)*q1copy0/(exp(haplo.lp)*q1copy0 + (1-q1copy0))
     newdata$hfwts[iamb1] <- q1copy
@@ -125,4 +136,8 @@ print.haploOR <- function(x, ...) {
   cat("\n")
   cat("Coefficients:\n")
   print(x$coef)
+  cat("\nDegrees of Freedom:", x$df.null, "Total (i.e. Null);   ",
+      x$df.residual, "Residual\n")
+  cat("Null Deviance:     ", x$null.deviance, 
+      "\tResidual Deviance:", x$deviance, "\n")
 }

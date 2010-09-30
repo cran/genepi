@@ -1,0 +1,10 @@
+09/30/2010:  Version 1.0.1
+
+   o twoStagePower checks for vector length of mu
+   o modify haplotypeOddsRatio to accept more general formula
+   o added deviance and degrees of freedom to print.haploOR
+   o added a simulated example for haplotypeOddsRatio
+
+09/27/2010:  Version 1.0
+
+   o Initial version with two functions haplotypeOddsRatio & twoStagePower

@@ -31,6 +31,11 @@ twoStagePower <- function(n=NULL, Cost=NULL, m=5000, mu=0.045, mu.loc=0.5,
   m1 <- round(m*p)
 # calculate the mean vector
   mu.star <- rep(0,m)
+  if (length(mu) == 1) {
+    mu <- rep(mu, ntrue)
+  } else if (length(mu) != ntrue) {
+    stop("mu should be either a single number or of same length as mu.loc")
+  }
   if(rho > 0) {
     tt <- matrix(0, nrow=ntrue, ncol=m)
     for(i in 1:ntrue)  tt[i,] <- mu[i] * rho^abs((1:m)-mu.loc[i])
