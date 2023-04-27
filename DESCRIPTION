@@ -1,13 +1,14 @@
 Package: genepi
 Type: Package
 Title: Genetic Epidemiology Design and Inference
-Version: 1.0.1
+Version: 1.0.2
 Depends: R (>= 2.0.0), stats
 Author: Venkatraman E. Seshan
 Maintainer: Venkatraman E. Seshan <seshanv@mskcc.org>
-Description: Functions for Genetic Epi Methods Developed at MSKCC
+Description: Package for Genetic Epidemiologic Methods Developed at MSKCC. It contains functions to calculate haplotype specific odds ratio and the power of two stage design for GWAS studies. 
 License: GPL (>= 2)
 LazyLoad: yes
-Packaged: 2010-09-30 22:23:02 UTC; seshanv
+NeedsCompilation: yes
+Packaged: 2023-04-26 17:18:37 UTC; seshanv
 Repository: CRAN
-Date/Publication: 2010-10-01 08:23:04
+Date/Publication: 2023-04-27 08:22:34 UTC

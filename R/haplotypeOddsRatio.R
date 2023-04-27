@@ -69,7 +69,7 @@ haplotypeOddsRatio <- function(formula, gtypevar, data, stratvar=NULL, nsim=100,
 #  compute the probability of 1 copy (case probabilities will be updated later)
     p1copy[i1] <- probonecopy(n1, hf0, g1idx[i1], zzz$g1tbl, zzz$hpair)
   }
-# stop R CMD check warning: no visible binding for global variable ‘hfwts’
+# stop R CMD check warning: no visible binding for global variable 'hfwts'
   hfwts <- NA
   newdata$hfwts <- c(1-p1copy,p1copy[copynumambig])
 # haplotype ambiguous subjects will be coded as both copy num = 0 & 1

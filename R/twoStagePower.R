@@ -62,7 +62,8 @@ twoStagePower <- function(n=NULL, Cost=NULL, m=5000, mu=0.045, mu.loc=0.5,
                   pow=double(1),
                   tmp=double(m),
                   ord1=integer(m),
-                  rnk1=integer(m))
+                  rnk1=integer(m),
+                  PACKAGE="genepi")
   out[4] <- zzz$pow
   out
 }

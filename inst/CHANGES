@@ -1,3 +1,10 @@
+04/26/2023:  Version 1.0.2
+
+   o Fix non-ascii character in haplotypeOddsRatio.R (quotation around hfwts in comment)
+   o Fixed non-standard license specification: changed to  GPL (>= 2)
+   o Added init.c to register native routines (and PACKAGE="genepi" in the call)
+   o Fixed "Malformed Description field" issue
+
 09/30/2010:  Version 1.0.1
 
    o twoStagePower checks for vector length of mu
