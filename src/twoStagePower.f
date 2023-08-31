@@ -8,9 +8,9 @@
 
       call rndstart()
       n = n1 + n2
-      sqn = sqrt(dfloat(n))
-      sqn1 = sqrt(dfloat(n1))
-      sqn2 = sqrt(dfloat(n2))
+      sqn = sqrt(dble(n))
+      sqn1 = sqrt(dble(n1))
+      sqn2 = sqrt(dble(n2))
       sqrho0 = sqrt(1-rho0**2)
       sqrho1 = sqrt(1-rho1**2)
 
@@ -64,7 +64,7 @@
  45      continue
          if (tsel.eq.nsel) npow = npow + 1
  100  continue
-      pow = dfloat(npow)/dfloat(nsim)
+      pow = dble(npow)/dble(nsim)
       call rndend()
 
       return

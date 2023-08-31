@@ -11,16 +11,19 @@
   disease risk and two stage designs for GWAS.
 }
 \details{
-\tabular{ll}{
-Package: \tab genepi\cr
-Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2010-09-17\cr
-License: \tab GPL version 2 or later\cr
-LazyLoad: \tab yes\cr
-}
-~~ An overview of how to use the package, including the most important ~~
-~~ functions ~~
+  
+  \tabular{ll}{
+    Package: \tab genepi\cr
+    Type: \tab Package\cr
+    Version: \tab 1.0.3\cr
+    Date: \tab 2023-08-31\cr
+    License: \tab GPL version 2 or later\cr
+    LazyLoad: \tab yes\cr
+  }
+  There are two functions \code{haplotypeOddsRatio} and
+  \code{twoStagePower} in this package.
+  
+  Package will be archived and functions added to clinfun package
 }
 \author{
   Venkatraman E. Seshan
@@ -28,6 +31,10 @@ LazyLoad: \tab yes\cr
   Maintainer: Venkatraman E. Seshan <seshanv@mskcc.org>
 }
 \references{
+  Satagopan JM, Venkatraman ES, Begg CB. (2004) Two-stage designs for
+  gene-disease association studies with sample size constraints.
+  \emph{Biometrics} 
+ 
   Venkatraman ES, Mitra N, Begg CB. (2004) A method for evaluating the
   impact of individual haplotypes on disease incidence in molecular
   epidemiology studies. \emph{Stat Appl Genet Mol Biol.} v3:Article27.

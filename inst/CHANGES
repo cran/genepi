@@ -1,3 +1,9 @@
+08/31/2023:  Version 1.0.3
+
+   o Added a note that the functionality absorbed into clinfun 
+   o Replaced dfloat calls in fortran code with dble
+   o Fixed genepi-package Rd file that triggered a NOTE
+
 04/26/2023:  Version 1.0.2
 
    o Fix non-ascii character in haplotypeOddsRatio.R (quotation around hfwts in comment)

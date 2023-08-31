@@ -1,4 +1,4 @@
-97e340c8b850b76392394f461c9ffb55 *DESCRIPTION
+23a70614b9eef78c44197f938b5ecbce *DESCRIPTION
 ec1ab815f2458a00822c71afc2ddfa21 *NAMESPACE
 981743f0365c3adb62d07f046b2ebb6d *R/genhaplopairs.R
 72779ef5e1e3ca70bb84d43834d1a7f7 *R/haplotypeOddsRatio.R
@@ -6,11 +6,11 @@ ec1ab815f2458a00822c71afc2ddfa21 *NAMESPACE
 9415a5c7cbc30cb1027956092396b3a8 *R/probonecopy.R
 881761eda668196822f6bc7dc112b25b *R/significance.r
 9a789911e98b24c28aef810b8e6d4b6c *R/twoStagePower.R
-693c6f2f87079345133592b23175b355 *inst/CHANGES
-da2bd47c3b0fe492f287f22dd357663e *man/genepi-package.Rd
+edab87103fcfb3526c6c2c3799bce816 *inst/CHANGES
+2a4702ace718db5e9a658b32d80f7fe7 *man/genepi-package.Rd
 1afb0c7c3d2dadda8fe6d0d928d84d2c *man/haploOR-internal.Rd
 8ecbd618e47d06a8c003da175be25a9c *man/haplotypeOddsRatio.Rd
 7b8efc8ee3fe87a7781b7df418440b99 *man/twoStagePower.Rd
 409d7507e32a961585df8cd8849ac564 *src/init.c
 f4ba78cecdc3bae4507baf4d30e07153 *src/rshared.c
-7528f87d6083fae7927c7a8ddd2272b4 *src/twoStagePower.f
+1f5c48d1238b6c64c27c1a334542d409 *src/twoStagePower.f
